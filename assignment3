@@ -1,0 +1,92 @@
+//  Author: Daisey Jaramillo
+//
+//  Due Date: February 11, 2019
+//  Programming Assignment Number 3
+//  Spring 2019 - CS 2308 - 256
+//
+//  Instructor: Caneo J. Hwang
+//
+//  The purpose of this program is to assign
+// a value to the integer variable.
+// print the value of the integer, the address
+// of the integer variable, and the size (number
+// of bytes) of the integer variable.
+
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int x = 55;
+    cout << endl << "The address of x is " << &x << endl;
+    cout << "The size of x is " << sizeof(x) << " bytes\n";
+    cout << "The value in x is " << x << endl << endl;
+    bool y = true;
+    cout << "The address of y is " << &y << endl;
+    cout << "The size of y is " << sizeof(y) << " bytes\n";
+    cout << "The value in y is " << y << endl << endl;
+    char z = '$';
+    cout << "The address of z is " << &z << endl;
+    cout << "The size of z is " << sizeof(z) << " bytes\n";
+    cout << "The value in z is " << z << endl << endl;
+    short int d = 15;
+    cout << "The address of d is " << &d << endl;
+    cout << "The size of d is " << sizeof(d) << " bytes\n";
+    cout << "The value in d is " << d << endl << endl;
+    long int f = 1298;
+    cout << "The address of f is " << &f << endl;
+    cout << "The size of f is " << sizeof(f) << " bytes\n";
+    cout << "The value in f is " << f << endl << endl;
+    long long int g = 15672845;
+    cout << "The address of g is " << &g << endl;
+    cout << "The size of g is " << sizeof(g) << " bytes\n";
+    cout << "The value in g is " << g << endl << endl;
+    float h = 2.83;
+    cout << "The address of h is " << &h << endl;
+    cout << "The size of h is " << sizeof(h) << " bytes\n";
+    cout << "The value in h is " << h << endl << endl;
+    double i = 5.46;
+    cout << "The address of i is " << &i << endl;
+    cout << "The size of i is " << sizeof(i) << " bytes\n";
+    cout << "The value in i is " << i << endl << endl;
+    long double  j = 4.64224;
+    cout << "The address of j is " << &j << endl;
+    cout << "The size of j is " << sizeof(j) << " bytes\n";
+    cout << "The value in j is " << j << endl << endl;
+    string k = "i love you";
+    cout << "The address of k is " << &k << endl;
+    cout << "The size of k is " << sizeof(k) << " bytes\n";
+    cout << "The value in k is " << k << endl << endl;
+    int l[5] = {3,7,9,2,4};
+    cout << "The address of l[0] is " << &l[0] << endl;
+    cout << "The size of l[0] is " << sizeof(l[0]) << " bytes\n";
+    cout << "The value in l[0] is " << l[0] << endl;
+    cout << "The address of l[1] is " << &l[1] << endl;
+    cout << "The size of l[1] is " << sizeof(l[1]) << " bytes\n";
+    cout << "The value in l[1] is " << l[1] << endl;
+    cout << "The address of l[2] is " << &l[2] << endl;
+    cout << "The size of l[2] is " << sizeof(l[2]) << " bytes\n";
+    cout << "The value in l[2] is " << l[2] << endl;
+    cout << "The address of l[3] is " << &l[3] << endl;
+    cout << "The size of l[3] is " << sizeof(l[3]) << " bytes\n";
+    cout << "The value in l[3] is " << l[3] << endl;
+    cout << "The address of l[4] is " << &l[4] << endl;
+    cout << "The size of l[4] is " << sizeof(l[4]) << " bytes\n";
+    cout << "The value in l[4] is " << l[4] << endl << endl;
+    int v = 66;
+    int *ptr;
+    ptr = &v;
+    cout << "The address of ptr is " << ptr << endl;
+    cout << "The size of ptr " << sizeof(ptr) << " bytes" << endl;
+    cout << "the value of ptr is " << v << endl;
+    double a = 6.97;
+    double *pjk;
+    pjk = &a;
+    cout << "The address of ptr is " << pjk << endl;
+    cout << "The size of ptr " << sizeof(pjk) << " bytes" << endl;
+    cout << "the value of ptr is " << a << endl;
+
+    return 0;
+}
