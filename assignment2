@@ -1,0 +1,180 @@
+//  Author: Daisey Jaramillo
+//
+//  Due Date: February 05, 2019
+//  Programming Assignment Number 2
+//  Spring 2019 - CS 2308 - 256
+//
+//  Instructor: Caneo J. Hwang
+//
+//  The purpose of this program is to perform a bubble sort
+//  and a binary search on 3 arrays.
+
+#include <iostream>
+
+using namespace std;
+
+//Function prototypes
+void displayOriginal(int[],string[],string[]);
+void swap(int &, int&);
+void swap(string&, string&);
+void binarySearch(int[],string[],string[]);
+int main()
+{
+    //the 3 arrays
+    int studentIDs[] = {12345, 46793, 24589, 58643, 25578, 64750, 15328, 18352, 12993, 10354,
+                        17755, 32356};
+    string studentNames[] = {"Daisey  ","Tristan ","Alex    ","Lisa    ","Camryn  ","Ariel   ","Kaycee  ",
+                            "Alexis  ","Diana   ","Jennifer","Khloe   ","Kristine"};
+    string studentEMails[] = {"dmj90@txstate.edu","tgc05@txstate.edu","ajm25@txstate.edu",
+                            "lab45@txstate.edu","ccm55@txstate.edu","aaj78@txstate.edu","kgm99@txstate.edu",
+                            "agg77@txstate.edu","dcc98@txstate.edu","jmj20@txstate.edu","kas27@txstate.edu",
+                            "kij66@txstate.edu"};
+    //function call
+    displayOriginal(studentIDs,studentNames,studentEMails);
+
+        //bubble sort
+        int maxElement;
+        int index;
+        for (maxElement = 11; maxElement > 0;maxElement--)
+        {
+            for(index = 0; index < maxElement; index++)
+            {
+                if(studentIDs[index] > studentIDs[index + 1])
+                {
+                    swap(studentIDs[index], studentIDs[index + 1]);
+                    swap(studentNames[index], studentNames[index + 1]);
+                    swap(studentEMails[index], studentEMails[index + 1]);
+                }
+            }
+        }
+        //display sorted arrays
+    cout<<endl<<endl<<endl<< "          SORTED   ARRAYS  "<<endl;
+     cout<<"     ID      Name        Email" << endl;
+    for(int d=0;d<12;d++)
+    {
+        cout<<"   "<< studentIDs[d]<<"   "<<studentNames[d]<<"   "<<studentEMails[d]<<endl;
+    }
+    //fucation call
+    binarySearch(studentIDs,studentNames,studentEMails);
+
+    cout << endl << endl << endl<<endl<<endl<< "Bubble sort code written by - Daisey Jaramillo";
+	cout << endl << "February 05 - 2019" << endl;
+
+    return 0;
+}
+    // displays the original array positions
+void displayOriginal(int studentIDs[],string studentNames[],string studentEMails[])
+{
+
+     cout << endl << "Original sorted array of student records:" << endl;
+    cout<<"     ID      Name        Email" << endl;
+    for(int d=0;d<12;d++)
+    {
+        cout<<"   "<< studentIDs[d]<<"   "<<studentNames[d]<<"   "<<studentEMails[d]<<endl;
+    }
+
+}
+    //swaps the int arrays
+void swap(int &a, int &b)
+{
+    int temp = a;
+    a = b;
+    b = temp;
+}
+    //swaps the string arrays
+void swap(string &a, string &b)
+{
+    string temp =a;
+    a = b;
+    b = temp;
+}
+    // the binary search function
+void binarySearch(int studentIDs[],string studentNames[],string studentEMails[])
+{
+     int findNum;
+    cout<<endl<<"Enter an ID number to find (10354-64750):";
+	cin>> findNum;
+	int first = 0;
+	int last = 12 -1;
+	int middle = (first+last)/2;
+	while (first <= last)
+	{
+		if(studentIDs[middle] < findNum)
+		{
+			first = middle + 1;
+
+		}
+		else if(studentIDs[middle] == findNum)
+		{
+			cout<<findNum<<" found at location "<<middle+1<<"\n";
+			cout<< studentNames[middle]<< " " << studentEMails[middle];
+			break;
+		}
+		else
+		{
+			 last = middle - 1;
+		}
+		middle = (first + last)/2;
+	}
+	if(first > last)
+	{
+		cout<<"Not found! "<<findNum<<" is not present in the list.";
+	}
+
+	 cout << endl << "would u like to search in binary mode again? y/n ";
+    char key;
+    cin >> key;
+
+    while(key)
+    {
+    switch(key)
+    {
+         case 'y':
+        case 'Y':
+            {
+              cout<<endl<<"Enter an ID number to find (10354-64750):";
+                cin>> findNum;
+                int first = 0;
+                int last = 12 -1;
+                int middle = (first+last)/2;
+                while (first <= last)
+                {
+                    if(studentIDs[middle] < findNum)
+                    {
+                        first = middle + 1;
+
+                    }
+                    else if(studentIDs[middle] == findNum)
+                    {
+                        cout<<findNum<<" found at location "<<middle+1<<"\n";
+                        cout<< studentNames[middle]<< " " << studentEMails[middle];
+                        break;
+                    }
+                    else
+                    {
+                         last = middle - 1;
+                    }
+                    middle = (first + last)/2;
+                }
+                if(first > last)
+                {
+                    cout<<"Not found! "<<findNum<<" is not present in the list.";
+                }
+
+                 cout << endl << "would u like to search in binary mode again? y/n ";
+                 cin >> key;
+            }
+            break;
+        case 'n':
+        case 'N':
+            break;
+        default:
+            cout << endl << endl << "Invaild Choice - Enter y/n ";
+            cin >> key;
+            break;
+    }
+    if(key == 'n' || key == 'N')
+        break;
+    }
+
+}
