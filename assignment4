@@ -1,0 +1,107 @@
+//  Author: Daisey Jaramillo
+//
+//  Due Date: February 05, 2019
+//  Programming Assignment Number 4
+//  Spring 2019 - CS 2308 - 256
+//
+//  Instructor: Caneo J. Hwang
+//
+//  Print out product ID’s, unit prices, quantities sold, and the sales of each product from the arrays in the main ( ) function...
+//  Also print out the total units sold, the total sales of all items.
+
+
+
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <iomanip>
+#include <cmath>
+
+using namespace std;
+
+void calcSales(double[],int[],double&);
+
+int main()
+{
+    ifstream inputfile;
+    int *id = NULL;
+    id = new int[10];
+    string *name = NULL;
+    name = new string[10];
+    double price[10];
+    int sold [10];
+    int unitsSold =0;
+    double totalSalesofAll = 0;
+
+        inputfile.open("C:\\Users\\Daisey\\Desktop\\feb19.txt");
+    if (!inputfile)
+    {
+        cout << "Can't open the input file successfully." << endl;
+        return 1;
+    }
+
+cout<<endl<<"PRODUCT NAME     PRODUCT ID      UNIT PRICES     QUANTITIES SOLD"<<endl;
+
+        for(int x=0; x<10; x++)
+        {
+            inputfile>>name[x];
+            inputfile>>id[x];
+            inputfile>>price[x];
+            inputfile>>sold[x];
+        }
+    cout<< fixed<<setprecision(2)<<endl;
+
+for(int y=0; y<10; y++)
+{
+  cout<<" "<<name[y]<<"        "<<id[y]<<"           $"<<price[y]<<"            "<<sold[y]<<endl;
+
+}
+    calcSales(price,sold,totalSalesofAll);
+
+    for(int s=0;s<10;s++)
+    {
+        unitsSold += sold[s];
+    }
+    cout<<endl<<"Total Units Sold: "<< unitsSold<<endl;
+
+
+    cout<<"Total Sales of all Items: $"<<totalSalesofAll<<endl;
+
+
+inputfile.close();
+
+
+
+
+
+
+    delete [] id;
+    id = NULL;
+    delete [] name;
+    name = NULL;
+
+cout<<endl<<endl<<endl<<"Created by Daisey Jaramillo"<<endl;
+    return 0;
+}
+void calcSales(double price[],int sold[],double &totalSalesofAll)
+{
+    double *sales = NULL;
+    sales = new double[10];
+        for(int d=0; d<10; d++)
+        {
+            sales[d] = price[d] * sold[d];
+        }
+
+cout<< endl<< "Sales of each product(in order)"<< endl;
+        for(int c=0;c<10;c++)
+        {
+            cout<<"$"<<sales[c]<<endl;
+        }
+        for(int p=0; p<10; p++)
+        {
+            totalSalesofAll += sales[p];
+        }
+
+       delete [] sales;
+        sales = NULL;
+}
